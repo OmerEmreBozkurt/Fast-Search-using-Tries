@@ -39,6 +39,7 @@ bool TrieNode::searchKey(const string &key) {
     return currentNode->wordCount > 0;
 }
 
+//which finds prefix in tree and finds all word that starts with prefix
 vector<string> TrieNode::search_words_with_prefix(const string &prefix) {
     TrieNode* currentNode = this;
     vector<string> result;
@@ -55,6 +56,7 @@ vector<string> TrieNode::search_words_with_prefix(const string &prefix) {
     return result;
 }
 
+//finds word which starts with given prefix in recursive way
 void TrieNode::collect_words(TrieNode *currentNode, string prefix, vector<string> &result) {
     if (currentNode->wordCount > 0) {
         result.push_back(prefix);
