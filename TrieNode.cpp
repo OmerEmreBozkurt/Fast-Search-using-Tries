@@ -1,5 +1,5 @@
-#include "TrieNode.h"
 #include <iostream>
+#include "TrieNode.h"
 
 
 using namespace std;
@@ -15,6 +15,7 @@ TrieNode::~TrieNode() {
     delete *childNodes;
 }
 
+// inserts provided string to trie structure, it divides into letters and puts them into nodes
 void TrieNode::insertKey(string &key) {
     TrieNode* currentNode = this;
     for (char c : key) {
@@ -27,6 +28,7 @@ void TrieNode::insertKey(string &key) {
     currentNode->wordCount++;
 }
 
+//searches provided string in trie, if it exists it returns true
 bool TrieNode::searchKey(const string &key) {
     TrieNode* currentNode = this;
     for (char c : key) {
@@ -56,8 +58,8 @@ vector<string> TrieNode::search_words_with_prefix(const string &prefix) {
     return result;
 }
 
-//finds word which starts with given prefix in recursive way
-void TrieNode::collect_words(TrieNode *currentNode, string prefix, vector<string> &result) {
+//finds word which starts with given prefix in a recursive way
+void TrieNode::collect_words(TrieNode *currentNode, const string& prefix, vector<string> &result) {
     if (currentNode->wordCount > 0) {
         result.push_back(prefix);
     }
@@ -69,7 +71,3 @@ void TrieNode::collect_words(TrieNode *currentNode, string prefix, vector<string
         }
     }
 }
-
-
-
-

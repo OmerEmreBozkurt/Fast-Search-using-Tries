@@ -12,7 +12,7 @@ int main() {
     TrieNode* root = new TrieNode();
 
     //imports dictionary
-    ifstream dictFile("dictionary.txt");
+    ifstream dictFile("../dictionary.txt");
     string line;
     getline(dictFile,line);
     cout << line << endl;
@@ -27,10 +27,10 @@ int main() {
     dictFile.close();
 
     // defines output file
-    ofstream outputFile("output.txt");
+    ofstream outputFile("../output.txt");
 
     //reads input file, calls appropriate operations and writes result in output file
-    ifstream inputFile("input.txt");
+    ifstream inputFile("../input.txt");
     getline(inputFile,line);
     cout << line << endl;
     n = stoi(line);
@@ -58,6 +58,7 @@ int main() {
     }
     inputFile.close();
     outputFile.close();
+
 
     return 0;
 }
